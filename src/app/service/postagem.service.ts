@@ -15,28 +15,28 @@ export class PostagemService {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
-  getAllPostagens(): Observable<Postagem[]>{
+  getAllPostagens(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>('https://redesocialvs2.herokuapp.com/postagem', this.token)
   }
 
-  getByIdPostagem(id: number): Observable<Postagem>{
+  getByIdPostagem(id: number): Observable<Postagem> {
     return this.http.get<Postagem>(`https://redesocialvs2.herokuapp.com/postagem/${id}`, this.token)
   }
 
-  getByTituloPostagem(titulo: string): Observable<Postagem[]>{
+  getByTituloPostagem(titulo: string): Observable<Postagem[]> {
     return this.http.get<Postagem[]>(`https://redesocialvs2.herokuapp.com/postagem/titulo/${titulo}`, this.token)
   }
 
-  postPostagem(postagem: Postagem): Observable<Postagem>{
+  postPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.post<Postagem>('https://redesocialvs2.herokuapp.com/postagem/save', postagem, this.token)
   }
 
-  putPostagem(postagem: Postagem): Observable<Postagem>{
+  putPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.put<Postagem>('https://redesocialvs2.herokuapp.com/postagem/update', postagem, this.token)
   }
 
-  deletePostagem(id: number){
-    return this.http.delete(`https://redesocialvs2.herokuapp.compostagem/remove/${id}`, this.token)
+  deletePostagem(id: number) {
+    return this.http.delete(`https://redesocialvs2.herokuapp.com/postagem/remove/${id}`, this.token)
   }
 
 }
